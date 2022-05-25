@@ -2,16 +2,24 @@ import React from 'react';
 import routes from '../config/routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import AuthContext from '../auth/AuthContext';
+
+import { Text } from 'react-native';
+
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 import { Colors, Typography } from '../styles';
 
 import Home from '../screens/Home';
 import Splash from '../screens/Splash';
 import GetStarted from '../screens/GetStarted';
+import Login from '../screens/Login';
 
 
 const Stack = createStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 function MyTabs() {
     return (
@@ -26,7 +34,7 @@ function MyTabs() {
                   options={{
                       tabBarLabel: <Text style={[Typography.TAGLINE, {color: Colors.WHITE}]}>{routes.Home}</Text>,
                       tabBarIcon: ({ color }) => (
-                        <Icon name="home" color={color} size={23} />
+                        <FontAwesomeIcon icon={faHome} padding={12} style={{ color: "white" }} />
                       )
                   }} />
       </Tab.Navigator>
@@ -46,6 +54,7 @@ const RootNavigator = () => {
             : state.user == null ? 
               <>
                 <Stack.Screen name={routes.GetStarted} component={GetStarted} />
+                <Stack.Screen name={routes.Login} component={Login} />
               </>
             : 
               <>

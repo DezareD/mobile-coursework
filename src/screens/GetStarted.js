@@ -2,11 +2,10 @@ import React from 'react';
 import {
     StyleSheet,
     View,
-    Image,
     Text,
 } from 'react-native';
 
-import { Button } from "native-base";
+import { Button, Image } from "native-base";
 
 import routes from '../config/routes';
 import { Colors, Typography } from '../styles';
@@ -16,15 +15,15 @@ const GetStarted = ({navigation, route}) => {
 
     return (
         <View style={styles.container}>
-            {/* Body */}
             <View style={styles.bodyContainer} >
-                <Text style={[Typography.H3, styles.title]}>Привет !</Text>
-                <Text style={[Typography.TAGLINE, styles.title, {marginTop: 10}]}>Explore the interactive, secure and fast money planner and tracker app with highly expected data privacy for every user.</Text>
+                <Image source={require('../../assets/main_icon.png')} alt="Alternate Text" style={{ width: 150, height: 150}} />
+                <Text style={[Typography.H3, styles.title, {marginTop: 30}]}>Привет !</Text>
+                <Text style={[Typography.TAGLINE, styles.title, {marginTop: 10}]}>Приложение создано для анализа своего бюджета, просматривайте состояние вашего бюджета по категориям.</Text>
             </View>
-
-            {/* Footer */}
+            
             <View style={styles.footerContainer}>
-                <Button colorScheme="secondary">Get started!</Button>
+                <Button colorScheme="secondary"
+                    onPress={() => navigation.navigate(routes.Login)}>Начать!</Button>
             </View>
         </View>
     );

@@ -1,7 +1,8 @@
 const routes = {
     Splash: 'Splash',
-    Home: 'Home',
-    GetStarted: 'GetStarted'
+    Home: 'Главная',
+    GetStarted: 'GetStarted',
+    Login: 'Login'
   };
   
   export default routes;
