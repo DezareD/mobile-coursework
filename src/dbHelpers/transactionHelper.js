@@ -10,7 +10,7 @@ export const createTransactionsTable = () => {
         tx.executeSql(
             'CREATE TABLE IF NOT EXISTS ' + tableName +
             ' (id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR(50) NOT NULL, icon VARCHAR(30) NOT NULL, transaction_date TEXT NOT NULL, amount FLOAT NOT NULL, type VARCHAR(20) NOT NULL);',
-            [],
+            null,
             () => {
                 console.log('created');
             },
@@ -26,7 +26,7 @@ export const getTransactions = (setTransactions) => {
     db.transaction((tx) => {
         tx.executeSql(
             'SELECT * FROM ' + tableName,
-            [],
+            null,
             (tx, results) => {
                 var len = results.rows.length;
                 let result = [];
@@ -69,6 +69,7 @@ export const getIncomes = (setIncomes) => {
                 if (len > 0) {
                     for (let i = 0; i < len; i++) {
                         let row = results.rows.item(i);
+
                         result.push({
                             id: row.id,
                             category: row.category,
@@ -184,10 +185,11 @@ export const getTotalExpenses = (setTotalExpenses) => {
 
 // Insert Transactions
 export const insertTransaction = (item) => {
-    if (item.amount == 0) {
+    if (item.amount <= 0 || item.amount == '' || item.amount == NaN) {
         Alert.alert('Oups !', 'Please, write correct data.')
     }
     else {
+        console.log(item)
         db.transaction((tx) => {
             tx.executeSql(
                 'INSERT INTO ' + tableName + '(category, icon, transaction_date, amount, type) VALUES(?,?,?,?,?);',
@@ -245,7 +247,7 @@ export const deleteTransactionsTable = () => {
     db.transaction((tx) => {
         tx.executeSql(
             `drop table ${tableName}`,
-            [],
+            null,
             () => {
                 console.log('deleted');
             },

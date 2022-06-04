@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     StyleSheet,
-    View
+    View,
+    Text
 } from 'react-native';
 
 import { Colors } from '../styles';

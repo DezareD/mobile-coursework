@@ -1,8 +1,17 @@
 const routes = {
-    Splash: 'Splash',
+    Splash: 'Загрузка',
     Home: 'Главная',
-    GetStarted: 'GetStarted',
-    Login: 'Login'
+    GetStarted: 'Начать',
+    Login: 'Login',
+    Transactions: 'Транзации',
+    Notifications: 'Уведомления',
+    Income: 'Пополнения',
+    Expense: 'Расходы',
+    AddTransaction: 'Добавить транзакцию',
+    MoneyBox: 'MoneyBox',
+    AddMoneyBox: 'AddMoneyBox',
+    // Settings
+    Settings: 'Настройки'
   };
   
   export default routes;

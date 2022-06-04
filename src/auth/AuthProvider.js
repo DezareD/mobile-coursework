@@ -56,11 +56,10 @@ function AuthProvider({children}) {
           // Store User
           const jsonUser = JSON.stringify(user);
           await AsyncStorage.setItem('user', jsonUser);
-          // Store default currency (Dollar $)
           storeCurrency({
-            id: '1',
-            name: 'Dollar',
-            symbol: '$'
+            id: '3',
+            name: 'Russian Ruble',
+            symbol: '₽'
           });
           // Create MoneyBox & Transactions Tables
           createMoneyBoxTable();

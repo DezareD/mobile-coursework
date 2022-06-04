@@ -10,6 +10,11 @@ import { Button, Image } from "native-base";
 import routes from '../config/routes';
 import { Colors, Typography } from '../styles';
 
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faHandSpock
+} from "@fortawesome/free-solid-svg-icons";
+
 
 const GetStarted = ({navigation, route}) => {
 
@@ -22,8 +27,12 @@ const GetStarted = ({navigation, route}) => {
             </View>
             
             <View style={styles.footerContainer}>
-                <Button colorScheme="secondary"
-                    onPress={() => navigation.navigate(routes.Login)}>Начать!</Button>
+                <Button colorScheme="secondary" onPress={() => navigation.navigate(routes.Login)}>
+                        <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                            <FontAwesomeIcon icon={faHandSpock} padding={10} style={{ color: "white", flex: 1, marginRight: 6 }} />
+                            <Text style={{ color: "white", fontSize: 17 }}>Начать</Text>
+                        </View>
+                </Button>
             </View>
         </View>
     );

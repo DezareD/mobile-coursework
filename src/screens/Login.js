@@ -10,7 +10,8 @@ import {
 
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
-  faAngleLeft
+  faAngleLeft,
+  faUserCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Colors, Typography } from '../styles';
@@ -36,7 +37,7 @@ const Login = ({navigation}) => {
             authContext.signIn(user);
         }
         else {
-            Alert.alert('Sorry !', 'Please, enter valid informations.');
+            Alert.alert('Ошибка!', 'Введите валидную информацию.');
         }
     }
 
@@ -80,9 +81,12 @@ const Login = ({navigation}) => {
 
             {/* Footer */}
             <View style={styles.footerContainer}>
-                <Button 
-                    title='Login'
-                    onPress={() => __login()}>Завершить</Button>
+            <Button onPress={() => __login()}>
+                        <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                            <FontAwesomeIcon icon={faUserCheck} padding={10} style={{ color: "white", flex: 1, marginRight: 6 }} />
+                            <Text style={{ color: "white", fontSize: 17 }}>Завершить</Text>
+                        </View>
+                </Button>
             </View>
         </View>
     );
