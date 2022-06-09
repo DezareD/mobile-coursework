@@ -14,7 +14,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { Colors, Typography } from '../../styles';
 import { insertTransaction, updateTransaction } from '../../dbHelpers/transactionHelper';
 
-import { categories } from '../../utils/categories';
+import { categoriesEncome, categoriesDecome } from '../../utils/categories';
 
 import BackHeader from '../../components/BackHeader';
 import { Button } from "native-base";
@@ -38,7 +38,7 @@ const AddTransaction = ({navigation, route}) => {
             setIncome(route.params.item.type == 'income' ? false : true);
         }
         else {
-            setCategory(categories[0]); // Set the first category as a default category
+            setCategory(categoriesEncome[0]);
         }
     }, []);
 
@@ -98,16 +98,30 @@ const AddTransaction = ({navigation, route}) => {
                 {/* Category */}
                 <View style={styles.inputContainer}>
                     <Text style={[Typography.TAGLINE, {color: Colors.GRAY_DARK}]}>Категория</Text>
-                    <Picker
+
+                    {income == true ? 
+                        (<Picker
                         selectedValue={category}
                         onValueChange={(itemValue, itemIndex) => setCategory(itemValue)}
                         style={styles.input}
                         dropdownIconColor={Colors.GRAY_DARK}
                         itemStyle={[Typography.BODY, {color: Colors.GRAY_DARK}]}>
-                            {categories.map((category, index) => (
+                            {categoriesDecome.map((category, index) => (
                                 <Picker.Item key={index} label={category.name} value={category} />
                             ))}
-                    </Picker>
+                    </Picker>)
+                    : 
+                    (<Picker
+                        selectedValue={category}
+                        onValueChange={(itemValue, itemIndex) => setCategory(itemValue)}
+                        style={styles.input}
+                        dropdownIconColor={Colors.GRAY_DARK}
+                        itemStyle={[Typography.BODY, {color: Colors.GRAY_DARK}]}>
+                            {categoriesEncome.map((category, index) => (
+                                <Picker.Item key={index} label={category.name} value={category} />
+                            ))}
+                    </Picker>)
+                    }
                 </View>
 
                 {/* Transaction type */}

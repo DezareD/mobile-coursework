@@ -29,7 +29,7 @@ const PieCard = (props) => {
                     <Text style={[Typography.BODY, {marginLeft: 5, color: Colors.BLACK}]}>Потрачено ({payoutPercent}%)</Text>
                 </View>
                 <View style={styles.rowContainer}>
-                    <FontAwesomeIcon icon={faCircle} padding={15} style={{ color: Colors.BLACK }} />
+                    <FontAwesomeIcon icon={faCircle} padding={15} style={{ color: Colors.WHITE }} />
                     <Text style={[Typography.BODY, {marginLeft: 5, color: Colors.WHITE}]}>Сохранено ({savedPercent}%)</Text>
                 </View>
             </View>

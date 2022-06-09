@@ -136,7 +136,7 @@ const Settings = ({navigation}) => {
                     </View>
 
                     <View style={{ paddingTop: 20 }}>
-                    <Button onPress={() => __save()}>
+                    <Button onPress={() => __signOut()}>
                         <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                             <FontAwesomeIcon icon={faSignOutAlt} padding={10} style={{ color: Colors.WHITE, flex: 1, marginRight: 6 }} />
                             <Text style={{ color: Colors.WHITE, fontSize: 17 }}>Выйти</Text>

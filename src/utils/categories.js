@@ -8,60 +8,81 @@ import {
     faPlane,
     faHome,
     faSpa,
-    faFutbol
+    faFutbol,
+    faHandHoldingUsd,
+    faPiggyBank,
+    faWallet
  } from "@fortawesome/free-solid-svg-icons";
 
 import { Alert } from 'react-native';
 
 
 export const getIconByName = (name) => {
-
-    return categories.find(item => item.name == name).icon
+    var massive = categoriesEncome.concat(categoriesDecome);
+    return massive.find(item => item.name == name).icon;
 }
 
-export const categories = [
+export const categoriesEncome = [
     {
         id: '1',
+        name: 'Зарплата',
+        icon: faHandHoldingUsd
+    },
+    {
+        id: '2',
+        name: 'Кэшбек',
+        icon: faPiggyBank
+    },
+    {
+        id: '3',
+        name: 'Другие доходы',
+        icon: faWallet
+    }
+]
+
+export const categoriesDecome = [
+    {
+        id: '4',
         name: 'Покупки',
         icon: faShoppingBag
     },
     {
-        id: '2',
+        id: '5',
         name: 'Еда',
         icon: faUtensils
     },
     {
-        id: '3',
+        id: '6',
         name: 'Транспорт',
         icon: faBus
     },
     {
-        id: '4',
+        id: '7',
         name: 'Работа',
         icon: faBriefcase
     },
     {
-        id: '5',
+        id: '8',
         name: 'Кофе',
         icon: faCoffee
     },
     {
-        id: '6',
+        id: '9',
         name: 'Путешествия',
         icon: faPlane
     },
     {
-        id: '7',
+        id: '10',
         name: 'Аренда',
         icon: faHome
     },
     {
-        id: '8',
+        id: '11',
         name: 'Красота и здоровье',
         icon: faSpa
     },
     {
-        id: '9',
+        id: '12',
         name: 'Спорт',
         icon: faFutbol
     },
